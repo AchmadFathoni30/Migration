@@ -32,7 +32,7 @@ func MigrateData(c *gin.Context) {
 	FROM POS_SALES_HDR a
 	JOIN POS_SALES_PAYMENT c ON a.ID = c.ID
 	JOIN GHHB b ON a.BRANCH_ID = b.NOHHB
-	WHERE a.STATUS = '1' AND a.TRX_DATE BETWEEN '2025-03-18' AND '2025-04-07' AND a.VALID_STATUS = '1' AND a.BRANCH_ID='H08'`
+	WHERE a.STATUS = '1' AND a.TRX_DATE BETWEEN '2025-04-09' AND '2025-05-09' AND a.VALID_STATUS = '1'`
 
 	rows, err := config.MSSQL.Query(query)
 	if err != nil {

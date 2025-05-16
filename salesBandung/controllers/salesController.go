@@ -46,7 +46,8 @@ func GetSalesHeader(c *gin.Context) {
 	JOIN GHHB b ON a.BRANCH_ID = b.NOHHB
 	WHERE a.STATUS = '1'
 		AND a.TRX_DATE BETWEEN '2025-03-25' AND '2025-03-25'
-		AND b.KOTA = 'BANDUNG'
+		AND a.BRANCH_ID IN ('801','802','803','804','805','806','807','808','809','810','811','812','813','814','815','816','817','818','819','820','821','822','823',
+        '824','825','826','827','828','829','830','831','833','834','835','836','837','838','839','840','841','842','843','844','845','846','847','848','849','850')
 		AND a.VALID_STATUS='1'`
 
 	rows, err := config.MSSQL.Query(query)
@@ -122,7 +123,8 @@ func GetSalesDetail(c *gin.Context) {
     JOIN GHHB c ON b.BRANCH_ID = c.NOHHB
     WHERE b.STATUS = '1'
     AND b.TRX_DATE BETWEEN '2025-03-25' AND '2025-03-25'
-    AND c.KOTA = 'BANDUNG'
+    AND b.BRANCH_ID IN ('801','802','803','804','805','806','807','808','809','810','811','812','813','814','815','816','817','818','819','820','821','822','823',
+        '824','825','826','827','828','829','830','831','833','834','835','836','837','838','839','840','841','842','843','844','845','846','847','848','849','850')
     AND b.VALID_STATUS='1'`
 
     rows, err := config.MSSQL.Query(query)
@@ -207,8 +209,9 @@ func GetSalesPayment(c *gin.Context) {
     JOIN POS_SALES_HDR b ON a.ID = b.ID
     JOIN GHHB c ON b.BRANCH_ID = c.NOHHB
     WHERE b.STATUS = '1'
-    AND b.TRX_DATE BETWEEN '2025-03-25' AND '2025-03-25'
-    AND c.KOTA = 'BANDUNG'`
+    AND b.TRX_DATE BETWEEN '2025-03-25' AND '2025-04-28'
+    AND b.BRANCH_ID IN ('801','802','803','804','805','806','807','808','809','810','811','812','813','814','815','816','817','818','819','820','821','822','823',
+        '824','825','826','827','828','829','830','831','833','834','835','836','837','838','839','840','841','842','843','844','845','846','847','848','849','850')`
 
     rows, err := config.MSSQL.Query(query)
     if err != nil {
@@ -266,7 +269,8 @@ func GetSalesVoid(c *gin.Context) {
         JOIN GHHB c ON b.BRANCH_ID = c.NOHHB
         WHERE b.STATUS = '1'
         AND b.TRX_DATE BETWEEN '2025-03-25' AND '2025-03-25'
-        AND c.KOTA = 'BANDUNG'`
+        AND b.BRANCH_ID IN ('801','802','803','804','805','806','807','808','809','810','811','812','813','814','815','816','817','818','819','820','821','822','823',
+        '824','825','826','827','828','829','830','831','833','834','835','836','837','838','839','840','841','842','843','844','845','846','847','848','849','850')`
 
     rows, err := config.MSSQL.Query(query)
     if err != nil {
